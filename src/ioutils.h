@@ -8,4 +8,5 @@
 #include <stdio.h>
 
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
+char* readline(int *charCount);
 #endif //ADVENTOFCODE2017_IOUTILS_H

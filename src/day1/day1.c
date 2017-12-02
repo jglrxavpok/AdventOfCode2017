@@ -2,9 +2,11 @@
 // Created by jglrxavpok on 01/12/2017.
 //
 
+#include <stdio.h>
 #include "day1.h"
+#include "../ioutils.h"
 
-int solveday1(char* input) {
+int solveday1pt1(char *input) {
     char previous = '\0';
     char first = '\0';
     int sum = 0;
@@ -25,4 +27,42 @@ int solveday1(char* input) {
         sum += first - '0';
     }
     return sum;
+}
+
+int solveday1pt2(char *input, int inputSize) {
+    int sum = 0;
+    int i;
+    int halfsize = inputSize/2;
+    for(i = 0; i < inputSize; i++) {
+        char current = *(input + i);
+        if(current == '\n')
+            continue;
+        int halfwayidx = (i + halfsize) % inputSize;
+        char halfway = *(input + halfwayidx);
+        if(current == halfway) {
+            int digit = current - '0'; // convert to digit
+            sum += digit;
+        }
+    }
+    return sum;
+}
+
+void runday1() {
+    printf("Which part ?\n");
+    int part;
+    scanf("%d", &part);
+    getchar();
+    printf("Your input?\n");
+    int inputSize;
+    int result;
+    if(part == 1) {
+        result = solveday1pt1(readline(&inputSize));
+    } else if(part == 2) {
+        char* line = readline(&inputSize);
+        result = solveday1pt2(line, inputSize);
+    } else {
+        printf("Invalid part!\n");
+        return;
+    }
+    printf("The answer is %d\n", result);
 }

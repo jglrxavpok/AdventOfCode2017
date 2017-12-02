@@ -5,5 +5,8 @@
 #ifndef ADVENTOFCODE2017_DAY1_H
 #define ADVENTOFCODE2017_DAY1_H
 
-int solveday1(char* input);
+int solveday1pt1(char *input);
+int solveday1pt2(char *input, int inputSize);
+
+void runday1(void);
 #endif //ADVENTOFCODE2017_DAY1_H

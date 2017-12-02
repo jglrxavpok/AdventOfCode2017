@@ -9,6 +9,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <errno.h>
+#include <stdint.h>
 
 // if typedef doesn't exist (msvc, blah)
 typedef intptr_t ssize_t;
@@ -59,4 +60,11 @@ ssize_t getline(char **lineptr, size_t *n, FILE *stream) {
 
     (*lineptr)[pos] = '\0';
     return pos - 1;
+}
+
+char* readline(int *charCount) {
+    char* input = NULL;
+    size_t *inputSize;
+    *charCount = getline(&input, &inputSize, stdin);
+    return input;
 }
