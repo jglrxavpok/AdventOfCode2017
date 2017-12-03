@@ -40,8 +40,95 @@ int solveday3pt1(int input) {
     return abs(curx)+abs(cury); // Manhattan distance
 }
 
-int solveday3pt2(char *input) {
-    return -1;
+
+void setgrid(grid_t *grid, int x, int y, int value) {
+    if(x < 0) {
+        x = 2*abs(x)+1;
+    } else {
+        x = 2*x;
+    }
+    if(y < 0) {
+        y = 2*abs(y)+1;
+    } else {
+        y = 2*y;
+    }
+    (*grid)[x][y] = value;
+}
+
+int getgrid(grid_t *grid, int x, int y) {
+    // positive numbers get assigned to even numbers
+    // negative numbers get assigned to odd numbers
+    if(x < 0) {
+        x = 2*abs(x)+1;
+    } else {
+        x = 2*x;
+    }
+    if(y < 0) {
+        y = 2*abs(y)+1;
+    } else {
+        y = 2*y;
+    }
+    return (*grid)[x][y];
+}
+
+int solveday3pt2(int input) {
+    int grid[GRID_SIZE][GRID_SIZE]; // I'm sorry
+    int i;
+    for(i=0;i<GRID_SIZE;i++) {
+        int j;
+        for(j=0;j<GRID_SIZE;j++) {
+            grid[i][j] = 0; // initialize grid to 0s
+        }
+    }
+    grid[0][0] = 1;
+    int curx = 0;
+    int cury = 0;
+    unsigned int offset = 1;
+    int direction = 1;
+    int value = 1;
+    bool xaxis = true;
+    bool found = false;
+    while(value <= input) { // spiral outwards until going over the requested square
+        int axis;
+        for(axis = 0; axis < 2; axis++) {
+            for(i = 0; i<offset;i++) {
+                if(xaxis) {
+                    curx += direction;
+                } else {
+                    cury += direction;
+                }
+                int sum = 0;
+                sum += getgrid(&grid, curx-1, cury);
+                sum += getgrid(&grid, curx+1, cury);
+                sum += getgrid(&grid, curx-1, cury-1);
+                sum += getgrid(&grid, curx, cury-1);
+                sum += getgrid(&grid, curx+1, cury-1);
+                sum += getgrid(&grid, curx-1, cury+1);
+                sum += getgrid(&grid, curx, cury+1);
+                sum += getgrid(&grid, curx+1, cury+1);
+                setgrid(&grid, curx, cury, sum);
+                value = sum;
+                if(sum > input) {
+                    found = true; // not going to use goto
+                    break;
+                }
+            }
+            xaxis = !xaxis;
+            if(found)
+                break;
+        }
+        offset++;
+        direction *= -1;
+        if(found)
+            break;
+    }
+
+    int j;
+    for(j = 0;j<GRID_SIZE;j++) {
+        free(grid[j]);
+    }
+    free(grid);
+    return value;
 }
 
 void runday3(int part) {
@@ -52,7 +139,7 @@ void runday3(int part) {
             result = solveday3pt1(readnumber());
             break;
         case 2:
-            result = solveday3pt2("");
+            result = solveday3pt2(readnumber());
             break;
         default:
             printf("Invalid part\n");
