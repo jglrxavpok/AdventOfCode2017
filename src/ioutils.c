@@ -68,3 +68,10 @@ char* readline(int *charCount) {
     *charCount = getline(&input, &inputSize, stdin);
     return input;
 }
+
+int readnumber() {
+    int result;
+    scanf("%d", &result);
+    getchar(); // removes trailing \n
+    return result;
+}

@@ -5,5 +5,5 @@ set(CMAKE_C_STANDARD 99)
 
 set(SOURCE
         src/main.c
-        src/day1/day1.c src/day1/day1.h src/ioutils.c src/ioutils.h src/day2/day2.c src/day2/day2.h src/intlist.c src/intlist.h)
+        src/day1/day1.c src/day1/day1.h src/ioutils.c src/ioutils.h src/day2/day2.c src/day2/day2.h src/intlist.c src/intlist.h src/day3/day3.c src/day3/day3.h)
 add_executable(AdventOfCode2017 ${SOURCE})

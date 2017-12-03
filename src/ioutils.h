@@ -9,4 +9,5 @@
 
 ssize_t getline(char **lineptr, size_t *n, FILE *stream);
 char* readline(int *charCount);
+int readnumber();
 #endif //ADVENTOFCODE2017_IOUTILS_H
