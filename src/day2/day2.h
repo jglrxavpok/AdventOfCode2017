@@ -7,7 +7,7 @@
 
 int solveday2pt1();
 int solveday2pt2();
-void runday2();
+void runday2(int i);
 int findchecksum(char *row);
 int findchecksum2(char *row);
 #endif //ADVENTOFCODE2017_DAY2_H

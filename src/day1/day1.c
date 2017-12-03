@@ -47,11 +47,7 @@ int solveday1pt2(char *input, int inputSize) {
     return sum;
 }
 
-void runday1() {
-    printf("Which part ?\n");
-    int part;
-    scanf("%d", &part);
-    getchar();
+void runday1(int part) {
     printf("Your input?\n");
     int inputSize;
     int result;

@@ -8,5 +8,5 @@
 int solveday1pt1(char *input);
 int solveday1pt2(char *input, int inputSize);
 
-void runday1(void);
+void runday1(int);
 #endif //ADVENTOFCODE2017_DAY1_H

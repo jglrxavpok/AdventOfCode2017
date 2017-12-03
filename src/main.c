@@ -5,15 +5,19 @@
 int main() {
     printf("Which day to do want to see ?\n");
     int dayNumber;
-    fflush(stdin);
     scanf("%d", &dayNumber);
     getchar(); // removes newline character
+
+    printf("Which part ?\n");
+    int part;
+    scanf("%d", &part);
+    getchar();
     switch(dayNumber) {
         case 1:
-            runday1();
+            runday1(part);
             break;
         case 2:
-            runday2();
+            runday2(part);
             break;
         default:
             printf("Unknown or unavailable day!\n");

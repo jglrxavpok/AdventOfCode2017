@@ -14,6 +14,7 @@ int solveday2pt1() {
     int checksum = 0;
     while(charCount != 0) {
         checksum += findchecksum(row);
+        printf("Waiting for next line...\n");
         row = readline(&charCount); // read next line
     }
     return checksum;
@@ -90,17 +91,14 @@ int solveday2pt2() {
     while(charCount != 0) {
         int rowChecksum = findchecksum2(row);
         checksum += rowChecksum;
-        printf("%s : %d!!", row, rowChecksum);
+
+        printf("Waiting for next line...\n");
         row = readline(&charCount); // read next line
     }
     return checksum;
 }
 
-void runday2() {
-    printf("Which part ?\n");
-    int part;
-    scanf("%d", &part);
-    getchar();
+void runday2(int part) {
     printf("Your input?\n");
     int result;
     if(part == 1) {
