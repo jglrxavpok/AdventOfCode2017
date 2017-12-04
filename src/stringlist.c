@@ -3,6 +3,7 @@
 //
 
 #include "stringlist.h"
+#include <stdlib.h>
 
 stringlinkedlist_t *mallocstringlist() {
     stringlinkedlist_t* list = malloc(sizeof(stringlinkedlist_t));
