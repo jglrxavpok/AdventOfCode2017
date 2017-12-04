@@ -2,6 +2,7 @@
 // Created by jglrxavpok on 02/12/2017.
 //
 
+#include <stdlib.h>
 #include "intlist.h"
 
 intlinkedlist_t *mallocintlist() {
