@@ -17,11 +17,12 @@ struct stringlinkedlist {
     struct stringlinkedlist *next;
     struct stringlinkedlist *last;
     int index;
+    int size;
 };
 typedef struct stringlinkedlist stringlinkedlist_t;
 
 stringlinkedlist_t *mallocstringlist(void);
-void addstringlist(stringlinkedlist_t *list, char *value);
+void addstringlist(stringlinkedlist_t *list, char *value, int size);
 void freestringlist(stringlinkedlist_t *list);
 
 #endif //ADVENTOFCODE2017_INTLIST_H

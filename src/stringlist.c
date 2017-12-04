@@ -10,12 +10,14 @@ stringlinkedlist_t *mallocstringlist() {
     list->value = "";
     list->next = NULL;
     list->hasValue = false;
+    list->size = 0;
     return list;
 }
 
-void addstringlist(stringlinkedlist_t *list, char* value) {
+void addstringlist(stringlinkedlist_t *list, char* value, int valueSize) {
     if( ! list->hasValue) { // the list is empty, add a value to its head
         list->value = value;
+        list->size = valueSize;
         list->hasValue = true;
         list->last = list;
         list->index = 0;
@@ -25,6 +27,7 @@ void addstringlist(stringlinkedlist_t *list, char* value) {
         list->last->next = next;
         list->last = next;
         next->value = value;
+        next->size = valueSize;
         next->hasValue = true;
     }
 }
