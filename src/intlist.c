@@ -22,8 +22,8 @@ void addintlist(intlinkedlist_t *list, int value) {
     } else {
         intlinkedlist_t* next = mallocintlist();
         list->last->next = next;
+        next->previous = list->last;
         list->last = next;
-        next->previous = list;
         next->value = value;
         next->hasValue = true;
     }
