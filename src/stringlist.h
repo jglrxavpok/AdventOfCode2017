@@ -2,8 +2,8 @@
 // Created by jglrxavpok on 02/12/2017.
 //
 
-#ifndef ADVENTOFCODE2017_INTLIST_H
-#define ADVENTOFCODE2017_INTLIST_H
+#ifndef ADVENTOFCODE2017_STRINGLIST_H
+#define ADVENTOFCODE2017_STRINGLIST_H
 
 #include <malloc.h>
 #include <stdbool.h>

@@ -4,6 +4,7 @@
 #include "day3/day3.h"
 #include "day4/day4.h"
 #include "day5/day5.h"
+#include "day6/day6.h"
 
 int main() {
     printf("Which day to do want to see ?\n");
@@ -30,6 +31,9 @@ int main() {
             break;
         case 5:
             runday5(part);
+            break;
+        case 6:
+            runday6(part);
             break;
         default:
             printf("Unknown or unavailable day!\n");
